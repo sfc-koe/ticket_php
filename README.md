@@ -7,6 +7,17 @@
 
 ## ファイルの説明
 
+* `index.php` : メインページ
+* `load.php` : ファイルの読み込み。全ページ共通のデータなど。
+* `rank.php` : ランキングのページ
+* `hitory.php` : 履歴表示のページ
+* `form.php` : フォーム入力の確認のページ
+* `confirm.php` : フォーム入力完了のページ。csvファイルに書き込み
+* `edit.php` : フォームの回答を編集するページ
+* `edit_form.php` : 変更内容を確認するページ
+* `edit_comfirm.php` : 編集・削除完了のページ
+* `delete_comfirm.php` : 削除内容を確認するページ. csvファイルに書き込み
+
 * `data/attend_data.csv` : フォームの入力した情報が保存されるファイル。
 * `data/delete_data.csv` : 削除したフォームの回答データが保存されるファイル。（中身は、番号。`attend_data.csv`の中で、何行目のデータが削除されたものか、という情報が入っている）
 * `data/edit_data.csv` :　編集されたフォームの回答データを保存
