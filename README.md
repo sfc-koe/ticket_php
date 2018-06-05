@@ -19,4 +19,5 @@
         * vimのコマンドについては、ググる
     3. 基本的には、これで新しいページの作成が完了する。（ページのURLは、`http://koe.sfc.keio.ac.jp/コンサート名/index.php`になる。17年冬コンだったら、`http://koe.sfc.keio.ac.jp/17win_ticket/index.php`）
 
-
+* 新しくメンバーを招待するとき
+    * https://qiita.com/chari/items/ee16bf16715f4bbcbd9b このページ参照。全員Ownerとして招待して良いと思う。
