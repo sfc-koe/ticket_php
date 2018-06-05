@@ -12,6 +12,13 @@
 * `data/edit_data.csv` :　編集されたフォームの回答データを保存
 * `data/guest.txt` : フォームで選べる招待した客の種類を格納しているファイル
 
+* `img`フォルダ : 画像が入ってるフォルダ
+    - `dog.jpg` :
+    - `dog2.jpg` : `index.php`の67行目. `rank.php`の63行目
+    - `dog3.jpg` : `history.php`の57行目
+    - `dog4.jpg` : `form.php`の84行目. `edit.php`の64行目. `edit_form.php`の57行目. `edit_comfirm.php`の79行目. `delete_comfirm.php`の71行目
+    - `dog5.jpg` :　`comfirm.php`の100行目``
+
 # 使い方
 
 ## プログラム変えるとき
