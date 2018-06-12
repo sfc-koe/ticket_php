@@ -1,9 +1,8 @@
 <?php
+date_default_timezone_set("Asia/Tokyo"); // タイムゾーン
 
-date_default_timezone_set("Asia/Tokyo");
-
-$concert_name = "Neverland";
-$dai_list = array("14","15","16","17","その他");
+$concert_name = "Neverland";　// コンサート名
+$dai_list = array("14","15","16","17","その他");　// 代情報
 
 $record_dai = array();     // 代を入れる配列
 $record_name = array();    // 名前を入れる配列
@@ -35,6 +34,7 @@ function readCsv($path) {
 
 // csv読み込む(いままでの投稿データ)
 $records = readCsv("data/attend_data.csv");
+// attend_date.csvの情報を取り入れる
 for ($i = 0; $i < count($records); $i++) {
     $record_dai[] = $records[$i][0];
     $record_name[] = $records[$i][1];
@@ -46,7 +46,6 @@ for ($i = 0; $i < count($records); $i++) {
 
 // 編集されているものは編集
 $edit_nums = readCsv("data/edit_data.csv");
-var_dump($record_num);
 for ($i = 0; $i < count($edit_nums); $i++) {
     $index = intval($edit_nums[$i][0]);
     // 台の情報の変種
@@ -62,7 +61,6 @@ for ($i = 0; $i < count($edit_nums); $i++) {
     $replace_guest = array($index => $edit_nums[$i][4]);
     $record_guest = array_replace($record_guest, $replace_guest);
 }
-var_dump($record_num);
 
 $count = 0; // 合計人数
 for ($i = 0; $i < count($record_num); $i++)
