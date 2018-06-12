@@ -74,7 +74,7 @@ for ($i=0; $i < count($delete_nums); $i++) {
     $index = intval($delete_nums[$i][0]);
 	unset($record_dai[$index]);
 	unset($record_name[$index]);
-    $count -= $record_num[$index];
+    $count -= $record_num[$index]; // 合計人数の部分から数字を引く
 	unset($record_num[$index]);
 	unset($record_guest[$index]);
 	unset($record_time[$index]);
