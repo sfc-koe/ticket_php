@@ -11,7 +11,6 @@
 	$action = substr($string, 0, 2);
 	$num = intval(substr($string, 2, $length-2));
 
-
 	$dai_num = array_search($record_dai[$num], $dai_list);
 	$guest_num = array_search($record_guest[$num], $guests);
 

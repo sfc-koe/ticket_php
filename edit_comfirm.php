@@ -8,6 +8,7 @@
     $session_edit_guest = $_SESSION['edit_guest'];
 	$session_edit_number = $_SESSION['edit_number'];
 	$concert_name =	$_SESSION['concert_name'];
+    $dai_list = $_SESSION['dai_list'];
 
 	session_unset();
     session_destroy();
@@ -23,7 +24,7 @@
     $to_write = array();
 
 	$to_write[] = $session_edit_number;
-    $to_write[] = $session_edit_dai;
+    $to_write[] = $dai_list[$session_edit_dai];
     $to_write[] = str_replace(",", "、", $session_edit_name);
     $to_write[] = $session_edit_num;
     $to_write[] = str_replace(",", "、", $session_edit_guest);
@@ -148,4 +149,3 @@
 <script src="js/clean-blog.min.js"></script>
 </body>
 </html>
-

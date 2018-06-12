@@ -15,6 +15,8 @@ $_SESSION['concert_name'] = $concert_name;
 
 $dai_list =	$_SESSION['dai_list'];
 
+$_SESSION['dai_list'] = $dai_list;
+
 ?>
 
 <!DOCTYPE html>
@@ -143,4 +145,3 @@ $dai_list =	$_SESSION['dai_list'];
 <script src="js/clean-blog.min.js"></script>
 </body>
 </html>
-

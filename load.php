@@ -36,14 +36,6 @@ function readCsv($path) {
 // csv読み込む(いままでの投稿データ)
 $records = readCsv("data/attend_data.csv");
 
-// 編集されているものは編集
-$edit_nums = readCsv("data/edit_data.csv");
-for ($i = 0; $i < count($edit_nums); $i++) {
-	$array = array($dai_list[$edit_nums[$i][1]], $edit_nums[$i][2], $edit_nums[$i][3], $edit_nums[$i][4]);
-	$records[$edit_nums[$i][0]] = $array;
-}
-
-
 $count = 0; // 合計人数
 // csvから情報を読み込む.
 for ($i = 0; $i < count($records); $i++) {
@@ -54,6 +46,21 @@ for ($i = 0; $i < count($records); $i++) {
     $record_num[] = $records[$i][2];
     $record_guest[] = $records[$i][3];
     $record_time[] = date("Y/m/d H:i:s", $records[$i][4]);
+}
+
+// 編集されているものは編集
+$edit_nums = readCsv("data/edit_data.csv");
+for ($i = 0; $i < count($edit_nums); $i++) {
+    $index = intval($edit_nums[$i][0]);
+    $date = date("Y/m/d/ H:i:s", $records[$index][4]);
+	$array = array($dai_list[intval($edit_nums[$i][1])], $edit_nums[$i][2], $edit_nums[$i][3], $edit_nums[$i][4], $date);
+	$records[$edit_nums[$i][0]] = $array;
+
+    // total countの部分を計算
+    // var_dump($index);
+    // var_dump($records[$index]);
+    // $diff = intval($records[$index][2]) - intval($edit_nums[$i][3]);
+    // $count += $diff;
 }
 
 // 削除されたものは削除
@@ -80,6 +87,8 @@ foreach($id as $key=>$val){
 	    }
 	}
 }
+
+$count -= count($delete_nums);
 
 
 $text = file_get_contents('data/guest.txt');
