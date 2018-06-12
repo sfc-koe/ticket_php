@@ -82,7 +82,7 @@ include("load.php")
                         <th></th><th></th>
                     </thead>
                     <?php
-                    for ($i = count($record_name)-1+count($delete_nums); $i >= 0; $i--) {
+                    for ($i = count($record_dai); $i >= 0; $i--) {
                         if($record_num[$i] !== null)  {
                             echo "<tr><td data-label='日時'>";
                             echo $record_time[$i];

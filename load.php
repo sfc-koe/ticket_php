@@ -35,11 +35,7 @@ function readCsv($path) {
 
 // csv読み込む(いままでの投稿データ)
 $records = readCsv("data/attend_data.csv");
-
-$count = 0; // 合計人数
-// csvから情報を読み込む.
 for ($i = 0; $i < count($records); $i++) {
-	$count += intval($records[$i][2]);
     $record_dai[] = $records[$i][0];
     $record_name[] = $records[$i][1];
     $id[] = $records[$i][0] . $records[$i][1];
@@ -50,29 +46,40 @@ for ($i = 0; $i < count($records); $i++) {
 
 // 編集されているものは編集
 $edit_nums = readCsv("data/edit_data.csv");
+var_dump($record_num);
 for ($i = 0; $i < count($edit_nums); $i++) {
     $index = intval($edit_nums[$i][0]);
-    $date = date("Y/m/d/ H:i:s", $records[$index][4]);
-	$array = array($dai_list[intval($edit_nums[$i][1])], $edit_nums[$i][2], $edit_nums[$i][3], $edit_nums[$i][4], $date);
-	$records[$edit_nums[$i][0]] = $array;
+    // 台の情報の変種
+    $replace_dai = array($index => $dai_list[intval($edit_nums[$i][1])]);
+    $record_dai = array_replace($record_dai, $replace_dai);
+    // 名前の情報の編集
+    $replace_name = array($index => $edit_nums[$i][2]);
+    $record_name = array_replace($record_name, $replace_name);
+    // 枚数の情報の編集
+    $replace_num = array($index => $edit_nums[$i][3]);
+    $record_num = array_replace($record_num, $replace_num);
+    // お客さんの情報の編集
+    $replace_guest = array($index => $edit_nums[$i][4]);
+    $record_guest = array_replace($record_guest, $replace_guest);
+}
+var_dump($record_num);
 
-    // total countの部分を計算
-    // var_dump($index);
-    // var_dump($records[$index]);
-    // $diff = intval($records[$index][2]) - intval($edit_nums[$i][3]);
-    // $count += $diff;
+$count = 0; // 合計人数
+for ($i = 0; $i < count($record_num); $i++)
+{
+    $count += $record_num[$i];
 }
 
 // 削除されたものは削除
 $delete_nums = readCsv("data/delete_data.csv");
 for ($i=0; $i < count($delete_nums); $i++) {
-	unset($records[intval($delete_nums[$i][0])]);
-	unset($record_dai[intval($delete_nums[$i][0])]);
-	unset($record_name[intval($delete_nums[$i][0])]);
-	unset($id[intval($delete_nums[$i][0])]);
-	unset($record_num[intval($delete_nums[$i][0])]);
-	unset($record_guest[intval($delete_nums[$i][0])]);
-	unset($record_time[intval($delete_nums[$i][0])]);
+    $index = intval($delete_nums[$i][0]);
+	unset($record_dai[$index]);
+	unset($record_name[$index]);
+    $count -= $record_num[$index];
+	unset($record_num[$index]);
+	unset($record_guest[$index]);
+	unset($record_time[$index]);
 }
 
 // ランキングのカウント
@@ -87,8 +94,6 @@ foreach($id as $key=>$val){
 	    }
 	}
 }
-
-$count -= count($delete_nums);
 
 
 $text = file_get_contents('data/guest.txt');
