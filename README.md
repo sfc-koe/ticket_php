@@ -4,7 +4,7 @@
 
 * KOEのチケットのはけ具合を確認するためのページ
 * SFCのサーバーの`/pub/WWW/koe`フォルダに`ticket_php`という名前で置いてある
-* 慶応のサーバーの使い方についてへ、![このページ](http://koe.sfc.keio.ac.jp/joho.pdf)を参考に
+* 慶応のサーバーの使い方についてへ、[このページ](http://koe.sfc.keio.ac.jp/joho.pdf)を参考に
 
 ## ファイルの説明
 
