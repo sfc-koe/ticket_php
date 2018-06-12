@@ -1,8 +1,9 @@
 <?php
-date_default_timezone_set("Asia/Tokyo"); // タイムゾーン
 
-$concert_name = "Neverland";　// コンサート名
-$dai_list = array("14","15","16","17","その他");　// 代情報
+date_default_timezone_set("Asia/Tokyo");
+
+$concert_name = "Neverland";
+$dai_list = array("14","15","16","17","その他");
 
 $record_dai = array();     // 代を入れる配列
 $record_name = array();    // 名前を入れる配列

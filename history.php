@@ -1,6 +1,6 @@
 <?php
 
-include("load.php")
+include("load.php");
 
 ?>
 
